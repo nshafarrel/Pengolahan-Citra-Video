@@ -19,13 +19,12 @@ upper_end = np.array([35, 255, 255])
 mask_img = cv2.inRange(hsv_img, lower_end, upper_end)
 filtered_img = cv2.bitwise_and(img, img, mask=mask_img)
     
-# Menampilkan gambar asli dan hasil filter
-cv2.imshow('Hasil Filter Warna Hijau (Gambar)', filtered_img)
+cv2.imshow('Filtered Color', filtered_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 # 4. Filter Color Video
-cap = cv2.VideoCapture(0) # Angka 0 untuk webcam bawaan laptop
+cap = cv2.VideoCapture(0)
 
 while True:
     ret, frame = cap.read()
@@ -39,7 +38,7 @@ while True:
     
     # Show Video
     cv2.imshow("Video Original", frame)
-    cv2.imshow("Video Filter Warna", filtered_video)
+    cv2.imshow("Video Filtered Color", filtered_video)
     
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
